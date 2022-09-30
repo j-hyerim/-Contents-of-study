@@ -79,5 +79,23 @@
     <footer>
         <address>Copyright&copy;2022 j's site allrights reserved.</address>
     </footer>
+
+    <script>
+        let n=1;
+        let title1=document.querySelector('dt');
+        console.log(title1);
+
+        title1.addEventListener('click', function(a){
+            if(n==1){
+                this.nextElementSibling.style.display='block';
+                n=0;
+            }else{
+                this.nextElementSibling.style.display='none';
+                n=1;
+            }
+        });
+
+
+</script>
 </body>
 </html>

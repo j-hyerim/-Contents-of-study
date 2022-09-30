@@ -23,22 +23,23 @@ h1{
 }
 /* html css */
 .border01{
-    border-top: 3px solid #e44d26;
-    border-bottom: 3px solid #e44d26;
+    border-top: 3px solid #bf5f82;
+    border-bottom: 3px solid #bf5f82;
 }
 /* css css */
 .border2{
-    border-top: 3px solid #1572b6;
-    border-bottom: 3px solid #1572b6;
+    border-top: 3px solid #9c64a6;
+    border-bottom: 3px solid #9c64a6;
 }
-.bg1{background-color: #f16529;}
-.bg2{background-color: #33a9dc;}
+.bg1{background-color: #f48fb1;}
+.bg2{background-color: #ce93d8}
 section {margin-bottom: 10px;}
 dl{
     margin: 0px 5px;
     overflow: hidden;
 }
 dt{
+    display: block;
     font-size: 14px;
     color: #ffffff;
     padding: 12px 0px;
