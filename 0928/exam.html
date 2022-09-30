@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>겨울왕국</title>
+    <style>
+     *{margin:0px; padding: 0px;}
+        ul,li,ol{list-style: none;}
+        a{text-decoration: none;}
+        body{
+            font-family: "맑은 고딕", arial, sans-serif;
+            font-size: 12px;
+            color: #333;
+        }
+        section{
+            margin: 0px auto;
+            width: 675px;
+        }
+        .top_s{
+            height: 45px;
+            line-height: 45px;
+        }
+        .top_s h2{
+            display: inline;
+        }
+        input{
+            background-color: white;
+            border: 1px solid rgb(151, 151, 151);
+            padding: 2px;
+            float: right;
+            margin-top: 10px;
+            margin-right: 3px;
+        }
+        h2,p,dl,dt,dd{padding: 10px;}
+        .banner_box{
+            position: relative;
+            width: 675px;
+            margin: 0px auto;
+            /* border: 1px solid rgb(184, 184, 184); */
+            overflow: hidden;
+        }
+        .banner_box img {width: 100%;}
+        .banner_box ul{
+            display: flex;
+        }
+        .banner_box ul li{
+            overflow: hidden;
+        }
+        .banner_box ul img:hover{
+            opacity: 0.7;
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+        h3,.banner_box p{
+            text-align: center;
+        }
+        #a{
+            font-weight: bold;
+            font-size: 14px;
+        }
+        i.fa-angle-left{
+            position: absolute;
+            top: 200px;
+            padding: 10px;
+            left: 0;
+            color: aliceblue;
+            background-color: rgba(0, 0, 0, .7);
+            font-size: 3rem;
+        }
+        .fa-angle-right{
+            position: absolute;
+            background-color: rgba(0, 0, 0, .7);
+            top: 200px;
+            padding: 10px;
+            right: 0px;
+            color: aliceblue;
+            font-size: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <article class="top_s">
+            <h2>포토 </h2><span id="page"></span>
+            <input type="button" value="원본보기" class="b1">
+            <input type="button" value="주소복사" class="b2">
+            
+        </article>
+        <hr>
+        <article class="main">
+            <p>스틸컷(10) | 프로모션(4) | 포스터(11)</p>
+        </article>
+            
+        <article class="banner_box">
+            <ul>
+                <li><img src="./images/movie_image (0).jpg" alt="" onclick="img(0);"></li>
+                <li><img src="./images/movie_image (1).jpg" alt="" onclick="img(1);"></li>
+                <li><img src="./images/movie_image (2).jpg" alt="" onclick="img(2);"></li>
+                <li><img src="./images/movie_image (3).jpg" alt="" onclick="img(3);"></li>
+                <li><img src="./images/movie_image (4).jpg" alt="" onclick="img(4);"></li>
+                <li><img src="./images/movie_image (5).jpg" alt="" onclick="img(5);"></li>
+                <li><img src="./images/movie_image (6).jpg" alt="" onclick="img(6);"></li>
+                <li><img src="./images/movie_image (7).jpg" alt="" onclick="img(7);"></li>
+                <li><img src="./images/movie_image (8).jpg" alt="" onclick="img(8);"></li>
+                <li><img src="./images/movie_image (9).jpg" alt="" onclick="img(9);"></li>
+                <li><img src="./images/movie_image (10).jpg" alt="" onclick="img(10);"></li>
+            </ul>
+            <i class="fas fa-angle-left" ></i>
+            <i class="fas fa-angle-right"></i>
+            <div id="main_img">
+                <img src="./images/movie_image (0).jpg" alt="" id="banner">
+                <h3>하이라이트</h3>
+                <p>영화 { 겨울왕국 2 } 하이라이트 이미지</p>
+            </div>
+        </article>
+    </section>
+
+
+    <script>
+        let a = 1;
+        const p_num = document.getElementById('page').innerHTML='<span id="a">'+a+'</span>'+'/10 건';
+       
+        function img(a){
+            console.log(a);
+            let src ="./images/movie_image (0).jpg";
+            src = src.replace('0',a);
+            document.getElementById('banner').src=src;
+            const p_num = document.getElementById('page').innerHTML='<span id="a">'+(a+1)+'</span>'+'/10 건';
+
+        
+
+        function nextImg(){
+            if(a==9){
+                a=0;
+            }else{
+                a++;
+            }
+            console.log(a);
+            const p_num = document.getElementById('page').innerHTML='<span id="a">'+(a+1)+'</span>'+'/10 건';
+            document.getElementById('banner').src='./images/movie_image ('+a+').jpg';
+
+        }
+
+        function prevImg(){
+            if(a==0){
+                a=9;
+            }else{
+                a--;
+            }
+            console.log(a);
+            const p_num = document.getElementById('page').innerHTML='<span id="a">'+(a+1)+'</span>'+'/10 건';
+            document.getElementById('banner').src='./images/movie_image ('+a+').jpg';
+        }
+        
+        const l_btn = document.querySelector('i.fa-angle-right');
+        const r_btn = document.querySelector('i.fa-angle-left');
+
+        l_btn.addEventListener('click', function(e){
+            // e.preventDefault();
+            nextImg();
+        });
+
+        r_btn.addEventListener('click', function(e){
+            // e.preventDefault();
+            prevImg();
+        });
+    }
+    </script>
+</body>
+</html>

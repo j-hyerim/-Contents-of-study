@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_javascript_data</title>
+    <style>
+        #clock{
+            font-size: 40px;
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+    <script defer src="./script/js.js">
+    </script>
+</head>
+<body>
+    <h2>03_javascript_data</h2>
+    <p>Data 객체는 현재 또는 특정 날짜와 시간에 대한 정보를 제공하는 객체이다.</p>
+    <p>[ 작성법 ] var 변수명 = new Date();</p>
+    <h3>날짜와 시간정보를 제공하는 속성</h3>
+    <ul>
+        <li>getFullYear() : 날짜정보에서 연도에 대한 정보를 제공</li>
+        <li>getMonth() : 날짜정보에서 월(0-11)에 대한 정보를 제공</li>
+        <li>getDate() : 날짜정보에서 일에 대한 정보를 제공</li>
+        <li>getDay() : 날짜정보에서 요일에 대한 정보를 제공</li>
+        <li>getHours() : 날짜정보에서 시간(0-23)에 대한 정보를 제공</li>
+        <li>getMinutes() : 날짜정보에서 분에 대한 정보를 제공</li>
+        <li>getSeconds() : 날짜정보에서 초(0-59)에 대한 정보를 제공</li>
+        <li>getMilliseconds() : 날짜정보에서 밀리초 (1/1000)에 대한 정보를 제공</li>
+    </ul>
+
+    <div id="clock"></div>
+</body>
+</html>

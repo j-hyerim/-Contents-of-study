@@ -1,0 +1,26 @@
+
+let title = document.title; // 문서의 제목을 title 변수에 담는다.
+let url = document.url;
+document.write(`현재 문서의 제목은 ${title}이며, 문서가 위치한 ${url}주소는 입니다.`)
+        
+        
+//다크모드함수
+
+let n=1;
+function darkMode(){
+    if(n==1){
+        document.bgColor='#333';
+        document.fgColor='#fff';
+        n=0;
+
+    }else{
+        document.bgColor='#fff';
+        document.fgColor='#333';
+        n=1;
+    }
+}
+//event]
+const d_btn= document.querySelector('#darkbtn');
+d_btn.addEventListener('click',function(){
+    darkMode()
+});

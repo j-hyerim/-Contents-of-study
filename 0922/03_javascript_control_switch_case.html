@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_javascript_control_switch_case</title>
+    <script>
+        let num =prompt('등수를 입력하세요 ex) 1,2,3')
+
+        switch(num){
+            case '1':
+                document.write('<p>당첨 해외여행에 당첨되셨습니다.</p>');
+                break;
+            case '2':
+            document.write('<p>당첨 냉장고에 당첨되셨습니다.</p>');
+            break;
+            case '3':
+            document.write('<p>당첨 청소기에 당첨되셨습니다.</p>');
+            break;
+            case '4':
+            document.write('<p>당첨 휴지에 당첨되셨습니다.</p>');
+            break;
+            default:document.write('꽝');
+
+        }
+    </script>
+</head>
+<body>
+    <h2>03_javascript_control_switch_case</h2>
+    <p> 선택문은 사용자가 만든 조건이 만족할 때 까지 계속 실행하면서 조건에 맞으면 실행되고 프로그램이 그자리에서 종료된다.</p>
+    <p>선택문은 조건의 값이 정확하게 일치해야 하는게 다른 조건문과의 다른 차이점이다.</p>
+    <p>break문 - 조건식에서 원하는 값이 나왔을 때 프로그램이 끝난다.</p>
+
+    <script>
+        //날짜 객체
+        let today = new Date();
+        //출력하기
+        document.write(today+'<br>');
+        document.write(today.getMonth()+1+'월<br>');//월
+        document.write(today.getDate()+'일<br>'); //일
+        document.write(today.getDay()+'<br>'); //요일
+    
+        let yoil = today.getDay();  //요일 번호 변수에 담기
+        document.write('오늘의 요일은 ');
+        switch(yoil){
+          case 0 : document.write('(일)');break;
+          case 1 : document.write('(월)');break;
+          case 2 : document.write('(화)');break;
+          case 3 : document.write('(수)');break;
+          case 4 : document.write('(목)');break;
+          case 5 : document.write('(금)');break;
+          default : document.write('(토)');
+        }
+        document.write(' 입니다.');
+    
+        //위에꺼보다 짧게 쓰기
+        let array = ['(일)','(월)','(화)','(수)','(목)','(금)','(토)'];
+        document.write(`<br>오늘의 요일은 ${array[yoil]} 입니다.`);
+    
+      </script>
+    
+</body>
+</html>

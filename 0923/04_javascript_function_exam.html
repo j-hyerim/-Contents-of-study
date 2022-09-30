@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <title>02_javascript_function_로그인폼</title>
+  <style>
+    *{
+        margin:0px;
+        padding:0px;
+    }
+    h2, p{
+        padding:10px;
+    }
+    body{
+      font-family: "맑은 고딕",arial,sans-serif;
+      font-size:12px;
+      color:#333333;
+    }
+    #login_form{
+      width:340px;
+      height: 420px;
+      margin:0px auto;
+      border:none;
+      text-align:center;
+      background-color: #ccc;
+    }
+    #login_form > legend{
+        color: #fff;
+        text-transform:uppercase;
+        text-align:center;
+        font-size:20px;
+        font-weight:bold;
+        padding-top: 140px;
+    }
+    #login_form label{
+        display:none;
+    }
+    #login_form #close{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        font-size: 30px;
+        color: #fff;
+        display: block;
+    }
+    form{
+        display: none;
+    }
+    #toggle:checked +label +form{
+        display: block;
+    }
+    #login_form input{
+        width:280px;
+        height:40px;
+    }
+    #login_form input[type=button]{
+        width:284px;
+        background-color:#c20f0f;
+        border:none;
+        color:#fff;
+    }
+    form{
+        width: 100%;
+        height: 100%;
+        position: fixed; top: 0px; left: 0px;
+        background-color: rgba(0, 0, 0, .7);
+    }
+  </style>
+</head>
+<body>
+  <h2>함수를 활용한 로그인 폼 구현하기</h2>
+  <p>로그인폼 양식을 작성하고 관리자 아이디, 패스워드 입력시 if문을 활용하여 조건식이 맞으면 '로그인 성공', 그렇지 않으면 '로그인 실패 다시입력하세요'라고 출력하기</p>
+
+    <input type="checkbox" id="toggle">
+    <label class="fas fa-user" for="toggle"></label>
+  <form name="" method="" action="">
+    <fieldset id="login_form">
+      <legend>Login</legend>
+      <label class="fas fa-times" for="toggle" id="close"></label>
+      <p><label for="id">아이디</label>
+        <input type="text" id="id" placeholder="아이디를 입력해주세요"></p>
+      <p><label for="pw">패스워드</label>
+        <input type="password" id="pw" placeholder="패스워드를 입력해주세요"></p>
+      <p><input type="button" value="로그인" onclick="login_Check();"></p>
+    </fieldset>
+  </form>
+
+
+  <script>
+//로그인 버튼 누르면 함수를 실행하여 아래 내용 실행하기
+
+    function login_Check(){
+
+      //1. 사용자가 입력한 데이터(아이디, 패스워드) 변수에 담는다.
+      let id = document.getElementById('id').value;
+      let pw = document.getElementById('pw').value;
+
+      console.log(id, pw);
+    
+      //조건문을 활용하여 아이디 'master' 패스워드 '1234'일 때 '인증성공' 틀리면 '인증실패'를 출력하세요
+    if(id=='master'){
+        if(pw=='1234'){
+            alert('인증성공');
+        }else{
+        alert('비밀번호가 틀렸습니다.');
+        }
+    }else{
+        alert('아이디가 틀렸습니다.');
+    }
+    }
+  </script>
+
+</body>
+</html>

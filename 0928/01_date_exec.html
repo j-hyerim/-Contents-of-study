@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>날짜와 시간을 표시해주는 객체 - Date</title>
+  <style>
+    #date{
+      font-size:40px;color:#00f;
+    }
+    #food{
+      border:3px solid #000;
+      width:350px;
+      margin:0px auto;
+      text-align:center;
+      font-weight:bold;
+      font-size:30px;
+    }
+  </style>
+  <!-- <script defer src==""></script> -->
+</head>
+<body>
+  <h2>날짜와 시간을 표시해주는 객체 - Date</h2>
+  <p>웹페이지에 날짜나 시간을 표시하기 위한 객체이며 다양하게 응용할 수 있다.</p>
+  <p>날짜를 사용하는 콘텐츠는 네이버의 뉴스기사, 증권, 블로그 글, 댓글, 유튜브, 카페, 메일, 환율, 날씨, sns, 예매, 쇼핑몰 주문정보</p>
+
+  <h3>실습예제1 - 현재날짜 출력하기</h3>
+  <p>예) 09.28(수)</p>
+  <div id="date"></div>
+
+  <h3>실습예제2 - 오늘의 추천요리(추천상품)</h3>
+  <p>현재 요일번호를 구하여 배열번호에 맞는 이미지파일명을 대입하여 이미지를 표시한다.</p>
+  <div id="food">
+
+  </div>
+  <script>
+    //date객체
+    let today = new Date();
+    document.write(today); //모든 시간과 날짜정보가 나온다.
+    let month, day, yoil; //월, 일, 요일
+    month = today.getMonth(); //월
+    day = today.getDate(); //일
+    yoil = today.getDay(); //요일
+
+    //배열
+    let a = ['(일)', '(월)', '(화)', '(수)', '(목)', '(금)', '(토)'];
+  
+    document.getElementById('date').innerHTML=month+1+'월. '+ day +'일.' + a[yoil];
+    document.getElementById('food').innerHTML='오늘'+a[yoil]+'의 추천요리는<br> <img src="./images02/food'+yoil+'.jpg">';
+
+  </script>
+</body>
+</html>

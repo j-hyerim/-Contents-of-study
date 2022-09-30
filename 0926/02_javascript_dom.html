@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_javascript_DOM</title>
+    <style>
+        img{width: 80%;}
+    </style>
+    <script src="./script/js,js" defer>
+    </script>
+</head>
+<body>
+    <h2>
+        내장객체의 종류
+    </h2>
+    <p>javascript에서 내장객체는 미리 정해진 규정에 따라 사용하도록 만들어진 객체이다.</p>
+    <dl>
+        <dt>내장객체의 종류</dt>
+        <dd>문서객체 - document</dd>
+        <dd>브라우저 객체 - window</dd>
+        <dd>날짜 객체 - date</dd>
+        <dd>수학객체 - math</dd>
+        <dd>배열객체 - array</dd>
+        <dd>문자열객체 - string</dd>
+        <dd>함수객체 - function</dd>
+        <dd>기타...</dd>
+    </dl>
+
+     <h3>문서객체모델 (DOM, document object model) p.240</h3>
+     <p>DOM 이란? 넒은 의미로는 웹 브라우저가 HTML 태그를 인식하는 방법이고,
+        좁은 의미로는 웹 문서 안에 있는 객체들의 집합니다.
+     </p>
+     <p>web browser(크롬, 사파리, 파이어폭스, 오페라, 익스플로러, 엣지, 모바일 브라우저) 마다 DOM 구현이 호환되지 않아서 W3C에서 DOM에 대한 표준규칙을 작성하였다.</p>
+
+     <h3>DOM TREE 구조의 이해</h3>
+     <p>DOM은 node==tag들의 집합이라고 할 수 있으며, DOM의 노드에는 요소노드, 속성노드, 텍스트노드로 구성되어있다.
+         노드는 DOM의 구조를 이루는 최소단위이며, 이 노드들의 집합체가 DOM 이라고 할 수 있다.
+     </p>
+
+     <img src="./dom/dom1.jpg" alt="dom">
+     <img src="./dom/dom2.jpg" alt="dom">
+     <img src="./dom/dom3.jpg" alt="dom">
+     <img src="./dom/dom4.jpg" alt="dom">
+     
+     <h4>document 객체의 속성들</h4>
+     <ul>
+        <li>domain - 현재 문서가 있는 서버의 도메인 이름</li>
+        <li>title - 현재 문서의 제목</li>
+        <li>bgColor - 문서의 배경색</li>
+        <li>fgColor - 문서의 글자색</li>
+        <li>linkColor - 문서의 링크 글자색</li>
+        <li>alinkColor - 링크를 클릭하였을 때 글자색</li>
+        <li>vlinkColor - 방문했던 링크의 글자색</li>
+        <li>anchors - 문서의 anchor들의 배열</li>
+        <li>cookie - 쿠키에 대한 정보</li>
+        <li>url - 문서의 url주소</li>
+     </ul>
+
+     <h4>document 객체의 메소드 종류들</h4>
+     <ul>
+        <li>open(); - 데이터를 보낼 준비</li>
+        <li>close(); - 문서에 데이터 출력을 마무리함</li>
+        <li>clear(); - 브라우저에서 문서를 지움</li>
+        <li>write(); - 문서의 내용을 출력함</li>
+        <li>writeln(); - 문서의 줄(line) 바꾸기를 포함하여 데이터를 출력함.</li>
+        <li></li>
+     </ul>
+
+     <h4>실습 1 . 현재 작성중인 문서의 title 정보와 url주소 알아보기</h4>
+     <h4>실습 2 . 버튼을 클릭하면 문서안에 글자색, 배경색 변경하기</h4>
+     <input type="button" value="문서의 배경색 변경하기" onclick="document.bgcolor='#ccc'">
+     <input type="button" value="문서의 글자색 변경하기" onclick="document.fgcolor='#00f'">
+
+     <h4>실습 3 . 다크모드 버튼을 만들고 배경 어둡게, 희색글자 다시 클릭하면 배경 흰색, 글자' 검 정 나오게 하기'</h4>
+     <!-- <input type="button" value="dark" onclick="darkMode()"> -->
+     <input type="button" value="dark" id="darkbtn">
+</body>
+</html>

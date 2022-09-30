@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_javascript_if_exam</title>
+    <script>
+        let id=prompt('id 를 입력하세요');
+        let pasw=prompt(' password를 입력세요 ');
+        if(id=='master' || id=='abcd' || id=='naver'){
+            if(pasw == '1234'){
+                document.write('<p>인증완료</p>');
+            }else{
+                document.write('<p>password인증실패 다시 시도하세요</p>');
+            }
+        }else{
+            document.write('<p>id 인증실패 다시 시도하세요</p>');
+        }
+
+        //삼항조건 연산자 조건식?실행1:실행2;
+        (id=='master'||id=='abcd'||id=='naver')&&(pw=='1234')?document.write('인증완료'):document.write('인증실패');
+
+        // (id=='master'||id=='abcd'||id=='naver')?((id=='master'||id=='abcd'||id=='naver'))
+    </script>
+</head>
+<body>
+    <h2>01_javascript_if_exam</h2>
+    <p>if 문을 활용하여 주어진 조건에 맞는 결과 출력하기</p>
+
+    <h3>예제 1</h3>
+    <p> 사용자가 입력한 아이디가 'master','abcd','naver' 중 하나만 입력해도 인증이 되며,
+        패스워드는 '1234' 일 때 결과값이 나오도록 함.
+        id 와 paw가 맞으면 '인증완료', 아니면 '인증실패 다시 시도하세요 출력하기'
+    </p>
+</body>
+</html>

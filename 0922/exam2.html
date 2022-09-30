@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습예제_겨울왕국 갤러리</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        #banner{
+            width: 665px;
+            height: 374px;
+            border: 1px solid #333;
+            background-color: rgba(0, 0, 0, .7);
+            padding: 10px;
+            position: relative;
+        }
+        #banner *{
+            padding: 0px;
+            margin: 0px;
+        }
+        i.fa-angle-left{
+            position: absolute;
+            top: 150px;
+            left: 0;
+            color: aliceblue;
+            background-color: rgba(0, 0, 0, .7);
+            font-size: 3rem;
+        }
+        .fa-angle-right{
+            position: absolute;
+            background-color: rgba(0, 0, 0, .7);
+            top: 150px;
+            right: 0px;
+            color: aliceblue;
+            font-size: 3rem;
+        }
+        #page{
+            background-color: rgba(0, 0, 0, .7);
+            color: #fff;
+            font-size: 14px;
+            position: absolute;
+            bottom: 0px;right: 0px;
+            padding: 4px 8px;
+        }
+    </style>
+    
+</head>
+<body>
+    <h2>실습예제_겨울왕국</h2>
+
+
+    <article id="banner">
+        <img src="./images/movie_image (0).jpg" alt="banner" id="photo">
+        <i class="fas fa-angle-left" ></i>
+        <i class="fas fa-angle-right"></i>
+        <span id="page"></span>
+    </article>
+
+    <script>
+        let n = 0;
+        const p_num = document.getElementById('page').innerHTML=n+'/10';
+
+        function nextImg(){
+            if(n==10){
+                n=0;
+            }else{
+                n++;
+            }
+            console.log(n);
+            const p_num = document.getElementById('page').innerHTML=n+'/10';
+            document.getElementById('photo').src='./images/movie_image ('+n+').jpg';
+
+        }
+
+        function prevImg(){
+            if(n==0){
+                n=10;
+            }else{
+                n--;
+            }
+            console.log(n);
+            const p_num = document.getElementById('page').innerHTML=n+'/10';
+            document.getElementById('photo').src='./images/movie_image ('+n+').jpg';
+        }
+
+        const l_btn = document.querySelector('i.fa-angle-right');
+        const r_btn = document.querySelector('i.fa-angle-left');
+
+        l_btn.addEventListener('click', function(e){
+            e.preventDefault();
+            nextImg();
+        });
+
+        r_btn.addEventListener('click', function(e){
+            e.preventDefault();
+            prevImg();
+        });
+
+    </script>
+</body>
+</html>

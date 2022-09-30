@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_javascript_exam</title>
+    <style>
+        *{margin:0px; padding: 0px;}
+        ul,li,ol{list-style: none;}
+        a{text-decoration: none;}
+        body{
+            font-family: "맑은 고딕", arial, sans-serif;
+            font-size: 12px;
+            color: #333;
+        }
+        h2,p,dl,dt,dd{padding: 10px;}
+        .banner_box{
+            width: 1200px;
+            margin: 0px auto;
+            border: 3px solid #000;
+        }
+        .banner_box img {width: 100%;}
+        .banner_box ul{
+            display: flex;
+        }
+        .banner_box ul li{
+            overflow: hidden;
+        }
+        .banner_box ul img:hover{
+            opacity: 0.7;
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <h2>02_javascript_exam 문자열 객체를 사용한 이미지 갤러리</h2>
+    <p>javascript 문자열 객체(string)을 활용하여 썸네일 이미지를 클릭할 시 해당사진으로 변경되게 하기.</p>
+
+    <dl>
+        <dt>구현순서</dt>
+        <dd>같은 크기의 이미지를 5장 준비한다.</dd>
+        <dd>5장의 사진을 작게 줄여서 썸네일 이미지 버튼으로 서식을 지정한다.(가로 또는 세로)</dd>
+        <dd>첫번째 이미지를 먼저 크게 배치한다.</dd>
+        <dd>썸네일 이미지 클릭 시 해당 이미지 파일의 문자열 값을 가져와 변수에 담는다.</dd>
+        <dd>변수에 저장된 문자열을 큰 이미지의 문자열 값에 대입하여 변경되도록 한다.</dd>
+    </dl>
+
+    <article class="banner_box">
+        <ul>
+            <li><img src="./images01/img_main_banner_160110.jpg" alt="" onclick="img(160110);"></li>
+            <li><img src="./images01/img_main_banner_160830.jpg" alt="" onclick="img(160830);"></li>
+            <li><img src="./images01/img_main_banner_161004.jpg" alt="" onclick="img(161004);"></li>
+            <li><img src="./images01/img_main_banner_161026.jpg" alt="" onclick="img(161026);"></li>
+            <li><img src="./images01/img_main_banner_161031.jpg" alt="" onclick="img(161031);"></li>
+        </ul>
+        <div id="main_img">
+            <img src="./images01/img_main_banner_160110.jpg" alt="" id="banner">
+        </div>
+    </article>
+
+    <script>
+        //1.사용자가 썸네일 이미즈를 클릭하마ㅕㄴ 해당하는 이미지으 ㅣ문자열 가 ㅅ을 변수에 담는다.
+        function img(a){
+            // alert('asd');
+            console.log(a);
+            // document.getElementById('banner').src="./images01/img_main_banner_"+a+".jpg";
+
+            //replace 속성을 사용하여 이미지 파일명 변경하기
+            let src ="./images01/img_main_banner_160110.jpg";
+            src = src.replace('160110',a);
+            document.getElementById('banner').src=src;
+        }
+    </script>
+</body>
+</html>

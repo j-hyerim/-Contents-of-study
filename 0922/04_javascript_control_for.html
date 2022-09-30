@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_javascript_control_for</title>
+    <style>
+        ol,li,ul{
+            list-style:none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .tab_menu{
+            position: relative; 
+            width: 400px; height: 230px;
+            border: 3px solid #000;
+        }
+        .tab_menu .list{
+            overflow: hidden;
+            display: flex;
+            justify-content: space-around;
+        }
+        .tab_menu .list li{margin-right: 14px;}
+        .tab_menu .list .btn{font-size: 14px;}
+        .tab_menu *{margin: 0px;padding: 0px;}
+        .tab_menu .list .cont{
+            position: absolute;
+            top: 25px;
+            left: 0px;
+            width: 100%;
+            height: 200px;
+            display: none;
+        }
+        #tab1{background-color: #ff0000;}
+        #tab2{background-color: #fff000;}
+        #tab3{background-color: #0eb91d;}
+    /* 메뉴 선택시 적용되는 서식 */
+    .tab_menu .list li.on .btn{font-weight:bold;color:#ff0000;}
+
+    /* 메뉴 선택시 보여지는 콘텐츠 */
+    .tab_menu .list li.on .cont{display:block;}
+    </style>
+    <script>
+        for(let n=0;n<=50;n++){
+            document.write(n);
+        }
+        document.write("<br><hr>")
+        for(let n1=50; n1>=30;--n1){
+            document.write(n1);
+        }
+        document.write("<br><hr>")
+        for(let i=1; i<=50;i++){
+            if(i%2==0)
+            document.write(i);
+        }
+    </script>
+</head>
+<body>
+    <h2>04_javascript_control_for</h2>
+    <p>반복문은 작업을 반복수행 할 때 사용하며, 조건문이 프로그램을 지적으로 만든다면 반복문은 프로그램을 강력하게 만드는 역할을 한다.</p>
+    <p>주의할 점 - 조건을 잘못 입력하면 무한 루프에 빠지는 오류가 생기며, 브라우저에 화면 멈춤 현상이 발생된다.</p>
+    <ul>
+        <li>while - 반복조건</li>
+        <li>do while - 반복조건</li>
+        <li>for - 반복횟수</li>
+    </ul>
+    <p>for문 작성 방법</p>
+    <pre>
+        for(초기값; 조건식; 증감식){
+            실행할 내용;
+        }
+    </pre>
+
+    <h3>반복문을 활용하여 탭 콘텐츠 구현하기</h3>
+    <div class="tab_menu">
+        <ul class="list">
+            <li class="on">
+                <a href="#tab1" class="btn">tab button1</a>
+                <div id="tab1" class="cont">tab content1</div>
+            </li>
+            <li>
+                <a href="#tab2" class="btn">tab button2</a>
+                <div id="tab2" class="cont">tab content2</div>
+            </li>
+            <li>
+                <a href="#tab3" class="btn">tab button3</a>
+                <div id="tab3" class="cont">tab content3</div>
+            </li>
+        </ul>
+    </div>
+   <script>
+    //li태그를 변수에 담는다.
+    const tabList = document.querySelectorAll('.tab_menu .list li');
+
+    for(let i=0;i<tabList.length;i++){ //li태그의 개수만큼 반복하여 기능을 설정함.
+      tabList[i].querySelector('.btn').addEventListener('click', function(e){
+        e.preventDefault(); //클릭시 이벤트를 무력화하여 아무일도 없게 함.
+
+        for(var j = 0; j < tabList.length; j++){ //li태그 on클래스 적용
+          tabList[j].classList.remove('on');
+        }
+        this.parentNode.classList.add('on'); //사용자가 선택한항목에 on클래스적용
+      });
+    }
+  </script>
+</body>
+</html>

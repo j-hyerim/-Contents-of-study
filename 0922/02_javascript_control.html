@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_javascript_control</title>
+    <script>
+        let drive = Number(prompt('교통비를 입력하세요'));
+        let meal =  Number(prompt('식비를 입력하세요'));
+        let drink =  Number(prompt('음료비를 입력하세요'));
+
+        if(drive+meal+drink <= 10000){
+            document.write('참 잘해써영');
+        }else{
+            document.write((drive+meal+drink)-10000+'초과');
+        }
+    </script>
+</head>
+<body>
+    <h2>02_javascript_control 실습예제2-지출내역 계산하기</h2>
+    <p>
+        진영이의 하루지출 내역은 교통비 000원, 식비 0000원 음료비 0000원입니다.
+        조건문 if 문을 사용하여 하루 적정 지출비용인 1만원원을 초과하면
+        '0000초과'라고 빨강글자로 표시하고, 그렇지 않을 경우
+        '돈관리 잘했어요'라고 파란글씨로 출력하기
+    </p>
+
+    <dl>
+        <dt>작성순서</dt>
+        <dd>변수 3개를 작성하고 사용자가 입력할 수 있게 prompt를 호출합니다.</dd>
+        <dd>조건식 if 문을 사용하여 조건에 맞으면 '돈관리 잘했어요'</dd>
+        <dd>그렇지 않으면 '0000초과'라고 출력하기</dd>
+    </dl>
+</body>
+</html>

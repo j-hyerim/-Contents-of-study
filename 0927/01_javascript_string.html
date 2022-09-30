@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_javascript_string</title>
+    <script>
+        //1. replace(a,b) -a문자열을 찾아서 b로 변환하기
+         let src="http://www.naver.com";
+         document.write(`<p>${src}</p>`);
+
+         src = src.replace('naver.com','daum.net');
+         document.write(`<p>${src}</p>`);
+         
+         //2. split - 문자열 자르기
+         src = src.split('.');
+         document.write(`<p>문자열 자르기 : ${src} </p>`);
+
+         //3. substring - 해당하는 인덱스번호부터 문자열 표시
+         let src1 = 'http://www.auction.co.kr';
+         src1= src1.substring(11);
+         document.write(`<p>인덱스 번호에 해당하는 문자열부터 표시함 ${src1}</p>`);
+
+         //4. length - 문자열 개수 (맞춤법, 댓글 범위, 상품평, sns글작성)
+        src1 =src1.length;
+        document.write(`<p>문자열에 개수는 ${src1}</p>`);
+
+        //문제. 명령프롬포드를 활용하여 사용자가 입력한 문자열에 개수를 체크하고 표시하시오.
+        txt =prompt();
+        txt= txt.length;
+        document.write(`<p>입력하신 문자열에 개수는 ${txt}개 입니다.</p>`);
+
+
+    </script>
+</head>
+<body>
+    <h2>01_javascript_string</h2>
+    <p>01_javascript_string의 내장객체 중에서 활용도가 많은 객체이며, 문자열 값을 인덱스 번호를 통해 값을 찾거나 다른 문자로 변경이 가능하다.</p>
+    <p>아이디, 패스워드 입력창 문자열 개수 체크, 단문 메세지 문자열 개수 체크 패스워드 문자열 찾아서 다른 문자열로 변경, 이미지 갤러리 등...</p>
+    <p>문자열 객체는 다른 내장 객체와는 다르게 new키워드를 생각해도 된다.</p>
+
+    <dl>
+        <dt>mathod의 종류</dt>
+        <dd>replace - 문자치환</dd>
+        <dd>split - 문자열 분리</dd>
+        <dd>substring - 인덱스번호 구간까지 문자데이터를 찾아준다.</dd>
+        <dd>length - 문자열 개수를 체크해준다.</dd>
+        <dd>indexof - 문자열과 일치하는 인덱스 번호를 반환한다.</dd>
+    </dl>
+</body>
+</html>

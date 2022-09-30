@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습예제_자바스크림트 함수와 이벤트, 변수를 활용한 이미지 배너</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        #banner{
+            width: 578px;
+            height: 338px;
+            border: 1px solid #333;
+            background-color: rgba(0, 0, 0, .7);
+            padding: 10px;
+            position: relative;
+        }
+        #banner *{
+            padding: 0px;
+            margin: 0px;
+        }
+        i.fa-angle-left{
+            position: absolute;
+            top: 150px;
+            left: 0;
+            color: aliceblue;
+            background-color: rgba(0, 0, 0, .7);
+            font-size: 3rem;
+        }
+        .fa-angle-right{
+            position: absolute;
+            background-color: rgba(0, 0, 0, .7);
+            top: 150px;
+            right: 0px;
+            color: aliceblue;
+            font-size: 3rem;
+        }
+        #page{
+            background-color: rgba(0, 0, 0, .7);
+            color: #fff;
+            font-size: 14px;
+            position: absolute;
+            bottom: 0px;right: 0px;
+            padding: 4px 8px;
+        }
+    </style>
+    
+</head>
+<body>
+    <h2>실습예제_자바스크림트 함수와 이벤트, 변수를 활용한 이미지 배너</h2>
+    <dl>
+        <dt>구현순서</dt>
+        <dd>1. banner 영역을 만들고 이미지 태그 요소를 사용하여 첫번째 이미지를 삽입한다.</dd>
+        <dd>2. icon font를 활용하여 좌, 우 방향 버튼을 삽입하여 css로 배치한다.</dd>
+        <dd>3. javascript에서 nextImg, prevImg 함수를 각각 작성하여 총 이미지의 개수가 4장을 초과하지 않는 조건문을 작성한다.</dd>
+        <dd>4. 좌, 우 방향버튼을 클릭 시 각각 함수 명을 호출하여 해당 이미지가 나오도록 한다.</dd>
+        <dd></dd>
+        <dd></dd>
+    </dl>
+
+    <article id="banner">
+        <img src="./images/banner01.jpg" alt="banner" id="photo">
+        <i class="fas fa-angle-left" ></i>
+        <i class="fas fa-angle-right"></i>
+        <span id="page"></span>
+    </article>
+    <script>
+        let n = 1;
+        const p_num = document.getElementById('page').innerHTML=n+'/4';
+
+        function nextImg(){
+            if(n==4){
+                n=1;
+            }else{
+                n++;
+            }
+            console.log(n);
+            const p_num = document.getElementById('page').innerHTML=n+'/4';
+            document.getElementById('photo').src='./images/banner0'+n+'.jpg';
+
+        }
+
+        function  prevImg(){
+            if(n==1){
+                n=4;
+            }else{
+                n--;
+            }
+            console.log(n);
+            const p_num = document.getElementById('page').innerHTML=n+'/4';
+            document.getElementById('photo').src='./images/banner'+n+'.jpg';
+        }
+
+        const l_btn = document.querySelector('i.fa-angle-right');
+        const r_btn = document.querySelector('i.fa-angle-left');
+
+        l_btn.addEventListener('click', function(e){
+            e.preventDefault();
+            nextImg();
+        });
+
+        r_btn.addEventListener('click', function(e){
+            e.preventDefault();
+            prevImg();
+        });
+
+    </script>
+</body>
+</html>

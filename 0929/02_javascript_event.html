@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_javascript_event</title>
+</head>
+<body>
+    <h2>02_javascript_event</h2>
+    <p>event : 사건, 행사, 일어난 일</p>
+    <p>웹 페이지에서는 '클릭', '스크롤', '키보드', '오버, '아웃', '드래그', '더블클릭' 등의 작업이 일어나는 사건을 event라고 한다</p>
+
+    <dl>
+        <dt>document 객체의 event 종류</dt>
+        <dd>onclick() : 마우스를 클릭했을 때 이벤트 발생</dd>
+        <dd>ondbclick() : 마우스를 더블 클릭했을 때 이벤트 발생</dd>
+        <dd>onkeydown() : 키보드로 눌렀을 떄 이벤트 발생</dd>
+        <dd>onkeypress() : 키보드로 눌렀다가 때었을 떄 이벤트 발생</dd>
+        <dd>onmousedown() : 마우스로 버튼을 눌렀을 때 이벤트 발생</dd>
+        <dd>onmouseup() : 마우스로 버튼을 놓았을 때 이벤트 발생</dd>
+        <dd>onmouseover() : 마우스로 버튼을 올렸을 때 이벤트 발생</dd>
+        <dd>onmouseout() : 마우스로 버튼에 올렸다가 떼었을 때 이벤트 발생</dd>
+    </dl>
+
+    <dl>
+        <dt>window 객체의 event 종류</dt>
+        <dd>window.onload : 페이지의 로딩이 완료되었을 때 이벤트 발생</dd>
+        <dd>abort : 이미지의 로딩이 중단되었을 때 이벤트 발생</dd>
+        <dd>unload : 페이지가 다른 곳으로 이동할 때 이벤트 발생</dd>
+        <dd>resize : 요소에 사이즈가 변경되었을 떄 이벤트 발생</dd>
+        <dd>scroll : 스크롤바를 움직였을 떄 이벤트 발생</dd>
+    </dl>
+
+    <h3>이벤트의 사용방식 3가지</h3>
+    <p>사용자가 실제 이벤트를 발생시켰을 때 그 이벤트를 대응하여 처리하는 것을 '이벤트 핸들러'라고 한다.</p>
+    <p>이벤트 핸들러는 앞에 'on'을 붙여주고 이벤트에 대한 동작(함수)를 처리한다.</p>
+
+    <h4>1. 인라인 방식으로 이벤트 처리하기</h4>
+    <p onclick="alert('클릭이벤트입니다..')">태그명 on이벤트명 = 자바스크립트 코드 | 예시) div onclick="bump"</p>
+
+    <h4>2. 고전방식</h4>
+    <p>객체.on이벤트명 = function(){ 실행코드 ;}</p>
+    <p>객체.on이벤트명 = 함수명; function(){ 실행코드; }</p>
+
+    <h4 class="h4_3">3. 표준방식</h4>
+
+    <h3>실습예제 1. </h3>
+    <p>textarea를 활용하여 사용자가 입력한 글자수가 한도 이상 글자가 써지지 않도록 하며, 몇글자 남앗는지 표시하기</p>
+    <form name="" method="get/post" action="">
+        <fieldset>
+            <legend>댓글</legend>
+            <p class="p01">&#x261e; 소감을 125자 이내로 적어주세요</p>
+            <textarea name="msg" id="t" cols="50" rows="10" onkeydown="textCount(this.form.msg, this.form.txtLen, 125)"  onkeyup="textCount(this.form.msg, this.form.txtLen, 125)"></textarea>
+            <p class="p01">현재
+                <input type="text" name="txtLen" size="3" maxlength="3" value="125" readonly>
+                글자가 남았습니다.
+            </p>
+        </fieldset>
+    </form>
+    <script>
+        //글자수 체크하는 함수 작성하기
+         function textCount(msg,txtLen,maxLimit){
+              if (msg.value.length > maxLimit ){
+                msg.value = msg.value.substring(0,maxLimit);
+            }else{
+                txtLen.value=125-msg.value.length;
+            }
+        } 
+         //표준이벤트 방식으로 함수 호출
+        //  let txtbox = document.querySelector('#t');
+        //  txtbox.addEventListener('keypress','keydown',funtion(){
+        //     if (msg.value.lenght > maxLimit ){
+        //         msg.value = msg.value.substring(0,maxLimit);
+        //     }else{
+        //         txtLen.value=maxLimit-msg.value.lenght;
+        //     }
+        //  })
+    </script>
+    <script>
+        function loadE1(){
+            alert('표준방식으로 이벤트 실행하기1')
+        }
+        function loadE2(){
+            alert('함수를 잘 활용합시다.')
+        }
+        window.onload = loadE1();
+        window.onload = loadE2();
+        
+        // window.onload = loadE1;
+        // window.onload = loadE2;
+        //위 주석결과 결과 : loadE2만 실행; 동일한 window 객체에 대한 이벤트 핸들러('onload')는 마지막 하나만 적용된다.
+
+
+        let print1 =document.querySelector('.h4_3');
+        print1.addEventListener('click',function(e){
+            alert('fnk,');
+        })
+        // function print1(){
+        //     print1.onclick('dd')
+        //     alert('념뇸ㄴ');
+        // }
+    </script>    
+</body>
+</html>

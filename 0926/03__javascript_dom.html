@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03__javascript_dom</title>
+</head>
+<body>
+    <h2>03__javascript_dom</h2>
+    <p>html요소를 다루기 위해서는 해당 요소를 선택해야 합니다.</p>
+    <p>javascript에서 특정 html 요소를 선택하는 방법은 여러가지가 있습니다.</p>
+    <ol>
+        <li>HTML 태그 이름을 이용한 선택</li>
+        <li>ID 이름을 이용한 선택</li>
+        <li>CLASS 이름을 이용한 선택</li>
+        <li>name속성(attribute)을 이용한 선택</li>
+        <li>css선택자(Selector)을 이용한 선택</li>
+        <li>html객체집합(object collection)을 이용한 선택</li>
+    </ol>
+
+    <h3>1. HTML 태그 이름을 이용한 선택</h3>
+    <h3>2. ID 이름을 이용한 선택</h3>
+    <p id="id_p">아이디 id_p에 배경색 적용하기</p>
+    <h3 class="cs_h3">3. CLASS 이름을 이용한 선택</h3>
+    <h3>4. name속성(attribute)을 이용한 선택</h3>
+    <h3>5. css선택자(Selector)을 이용한 선택</h3>
+    <h3>6. html객체집합(object collection)을 이용한 선택</h3>
+    <script>
+        let h = document.getElementsByTagName('h3');
+
+        //외부서식은 기본 양식으로 스타일이 적용ㅇㅣ불가능하다. document는 html문서 안 에서만 가능하다,
+        console.log(h);
+        // for(let i=0; i<=h.length;i++){
+        //     h.item(i).style.color="blue";
+        // }
+
+        let id_1 = document.getElementById('id_p');
+        // for(let j=0; j<=id_1.length;j++){
+            // id_1.style.background = "#00f ";
+        // }
+
+        let cl = document.getElementsByClassName('cs_h3');
+        cl.style.background = "#00f ";
+
+    </script>
+</body>
+</html>

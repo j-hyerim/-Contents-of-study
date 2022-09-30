@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_javascript_객체(window)</title>
+    <link rel="stylesheet" href="./style/css.css" type="text/css">
+    <style>
+        *{
+            margin: 0px auto;
+            padding: 0px;;
+        }
+    </style>
+    <script>
+        function aler(){
+            window.alert('경고메세지입니다.');
+        }
+        function prom(){
+            window.prompt('입력받습니다.');
+        }
+        function conf(){
+            window.confirm('만 15세 이상입니까?');
+        }
+        // let wValue() ="menubar= yes,resizeable=yes, scrollbars=yes,status=yes";
+        function op(){
+            
+            window.open('popup.html','','width=360, height=360',"wvalue","scrollbars-no");
+        }
+    </script>
+</head>
+<body>
+    <h2>01_javascript_객체(window)</h2>
+    <p>browser 객체는 사용자가 사용하는 웹 브라우저의 창에서 다양한 동작이나 속성을 설정하고자 할 때 사용하는 객체이다.</p>
+
+    <h3>
+        window 객체
+    </h3>
+    <p>window 객체는 browser 객체 중 최상위 객체로서 현재 실행되고 있는 브라우저 창을 나타낸다.</p>
+    <dl>
+        <dt>window 객체의 메소드 종류</dt>
+        <dd>alert() : 경고창 메세지를 띄울 떄 사용한다.</dd>
+        <dd>prompt() : 데이터를 입력받을 수 있는 명령 창이다.</dd>
+        <dd>confirm() : 질문 내용에 대한 확인, 취소를 하고자 할 때 사용한다.</dd>
+        <dd>setInterval() : 일정 시간동안 작성한 코드나 함수를 실행하고자 할 떄 사용한다.</dd>
+        <dd>clearInterval() : 일정시간동안 설정한 함수나 코드에 적용된 시간을 제거할 때 사용한다.</dd>
+        <dd>open() : url 주소를 삽입하여 현재 페이지가 아닌 새로운 창에서 페이지가 나오도록 한다.</dd>
+        <dd>close() : 윈도우 창을 닫을 때 사용한다.</dd>
+    </dl>
+
+    <input type="button" value="alert(); 실행하기" onclick="aler();">
+    <input type="button" value="prompt(); 실행하기"  onclick="prom();">
+    <input type="button" value="confirm(); 실행하기"  onclick="conf();">
+    <input type="button" value="open(); 실행하기"  onclick="op();">
+    <input type="button" value="close(); 실행하기"  onclick="prom();">
+
+
+    <h3>실습예제 - 푸터영역에 있는 관련사이트 바로가기 구현하기</h3>
+    <select name="" id="" onChange="siteUrl(this.value)">
+        <option value="">패밀리사이트</option>
+        <option value="https://www.lotteria.com/">롯데리아</option>
+        <option value="https://www.lotteeatz.com/main/angel.do">엔젤리너스커피</option>
+        <option value="https://www.lotteshopping.com/">롯데백화점</option>
+        <option value="http://www.lotteworld.com/gate.html">롯데월드</option>
+        <option value="https://www.lotteimall.com/main/viewMain.lotte?dpml_no=1&gclid=CjwKCAjw4c-ZBhAEEiwAZ105RTzEHk-8Kn5SYcKnULCkNPwprrd2zbp7fKftftd82v9TwF4Q9qqu-BoCevMQAvD_BwE#disp_no=5203359">롯데홈쇼핑</option>
+    </select>
+
+    <h3>실습예제2 - 롯데on 홈페이지 처럼 모달윈도 띄우기</h3>
+    <p>롯데ON사이트에서 배너이미지를 저장하고 모달윈도 창을 띄운다. 후 닫기 버튼을 누르면 숨겨진다.</p>
+
+    <div class="modal">
+        <div class="img_box">
+            <a href="#" title="광고">
+                <img src = "./image/popup.jpg"  alt="">
+            </a>
+            <input type="checkbox" id="ch">
+            <label for="ch"> 오늘 하루 이창을 열지 않음</label>
+            <a href="#" title="" id="aa" onclick="modal();">닫기</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function siteUrl(url){
+            if(url!=''){
+                window.open(url,'_self');
+            }
+        }
+
+        function modal(){
+
+        let modal = document.querySelector('.modal');
+        modal.style.display = 'none';
+        }
+
+        // function modal(){
+        //     const closeBtn = modal.querySelector(".modal");
+        
+        //     closeBtn.addEventListener("click", e => {
+        //         modal.style.display = "none"
+        //     });
+        // }
+    </script>
+</body>
+</html>
