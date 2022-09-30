@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_javascript_control_if</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+        span{
+            color: red;
+            font-weight: bold;
+        }
+
+        /*좌우 방향버튼을 활용한 페이지 넘기기 서식*/
+        #page{
+            padding: 10px 20px;
+            font-weight: bold;
+        }
+        i.fas{
+            padding: 4px 8px;
+            border: 1px solid #333333;
+            cursor: pointer;
+        }
+        article{
+            width: 400px; height: 730px;
+            border: 5px solid rgb(255, 255, 255);
+            box-shadow: 0px 0px 10px #333;
+            padding: 20px;
+            text-align: right;
+        }
+        article img {padding-top: 10px;}
+    </style>
+    <script>
+        //if
+        if(1 == '1'){
+            document.write('(1 == \'1\')위 수식은 <span>참</span>입니다.<br>');
+        }
+
+        //else
+        if(1 === '1'){
+            document.write('위 수식은 <span>참</span>입니다.<br>');
+        }else{
+            document.write('(1 === \'1\') 위 수식은 <span>거짓</span>입니다.<br>');
+        }
+
+        //삼항연산자
+        (1=='1')?document.write('위 수식은 <span>참</span>입니다.<br>'):('위 수식은 <span>거짓</span>입니다.<br>');
+
+        //문제 . 사용자가 입력한 숫자를 홀수와 짝수로 나누는 조건식
+        let n = prompt('숫자를 입력하세요');
+
+        if(n%2==0){
+            document.write(`입력하신 숫자 ${n}은 <span>짝수</span>입니다.`)
+        }else{
+            document.write(`입력하신 숫자 ${n}은 <span>홀수</span>입니다.`)
+        }
+
+        //문제 성적을 받아 내신등급표현하기
+        let score = prompt('자신의 점수를 입력하세요');
+        if(score >= 90){
+            document.write(`<p>당신의 성적은 <span>A</span> 입니다</p>`);
+        }else if(score>=80){
+            document.write(`<p>당신의 성적은 <span>B</span> 입니다</p>`);
+        }else if(score>=70){
+            document.write(`<p>당신의 성적은 <span>C</span> 입니다</p>`);
+        }else if(score>=60){
+            document.write(`<p>당신의 성적은 <span>D</span> 입니다</p>`);
+        }else if(score>=50){
+            document.write(`<p>당신의 성적은 <span>E</span> 입니다</p>`);
+        }else if(score>=40){
+            document.write(`<p>당신의 성적은 <span>F</span> 입니다</p>`);
+        }else{
+            document.write(`<p>당신의 성적은 유급 입니다</p>`);
+        }
+    </script>
+</head>
+<body>
+    <h2>02_javascript_control_if</h2>
+    <p>제어문이란? 프로그램의 실행을 제어하기 위해 사용하는 실행문으로서 조건문(if, else, else if), 선택문(switch case), 반복문(while, do while, for)이 있다.</p>
+
+    <h3>1. 조건문 - if, else, else if</h3>
+    <ul>
+        <li>if - 조건식이 만족할 때만 실행되는 조건문이다.</li>
+        <li>else - 조건식이 만족하면 true, 만족하지 않으면 false가 나오도록 하는 조건문이다.</li>
+        <li>else if - 조건식이 여러개일 경우 다양한 결과 값을 얻기 위한 조건문이다.</li>
+    </ul>
+    
+    <article>
+        <h3>교보문고 책 이미지 content 구현하기</h3>
+        <p>좌, 우측 방향버튼을 클릭 시 숫자 증감/ 감소 기능 만들기</p>
+        <p>변수 값이 변경될 때 이미지 파일명도 변경하여 페이지 넘기기</p>
+        <span id="page">&nbsp;</span>
+        <i class="fas fa-angle-left" onclick="minus();"></i>
+        <i class="fas fa-angle-right" onclick="plus();"></i>
+        <div>
+            <img src="./images/book1.jpg" alt="cor" id="book">
+        </div>
+    </article>
+    <script>
+        let num=1;
+        document.getElementById('page').innerHTML= num + '/10'
+        function plus(){
+            if(num==10){
+                num=1;
+            }
+            else{
+                num++;
+            }
+            // console.log(num);
+            document.getElementById('book').src='./images/book'+num+'.jpg';
+            document.getElementById('page').innerHTML= num + '/10'
+        }
+        function minus(){
+            if(num==1){
+                num=10;
+            }
+            else{
+                num--;
+            }
+            // console.log(num);
+            document.getElementById('book').src='./images/book'+num+'.jpg';
+            document.getElementById('page').innerHTML= num + '/10'
+        }
+    </script>
+</body>
+</html>

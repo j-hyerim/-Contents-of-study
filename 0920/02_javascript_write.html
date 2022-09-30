@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_javascript_write</title>
+  <style>
+    header{ background-color:#ffff00; }
+    header > h1{line-height:60px;text-align:center;}
+    footer{background:#ccc;line-height:40px;text-align:center;}
+  </style>
+  <script>
+    //1. document 객체를 사용하여 문서내용 출력하기
+    document.write('<header><h1><a href="#" title="">상단로고</a></h1></header>');
+
+    //2. window객체를 사용하여 메세지 띄우기
+    window.alert('내용을 확인하세요........'); //네이버 비밀번호 찾기 등 사용자에게 무엇인가를 전달하고자 할 때...... 사용
+
+    //3. console.log
+    console.log(20220920);
+  </script>
+</head>
+<body>
+  <h2>자바스크립트에서 문서출력하는 방법</h2>
+  <p>자바스크립트에서 다양한 방식으로 데이터 출력하기</p>
+  <ol>
+    <li>document객체에 write메서드를 사용 - document.write('출력할 내용');</li>
+    <li>window객체를 활용하여 메세지 띄우기 - window.alert('메세지 내용');</li>
+    <li>브라우저 개발자모드의 console창에서 출력하기 - concole.log(출력할 내용);</li>
+    <li>document객체의 innerHTML메서드로 내용 출력하기 - document.getElement('id명').innerHTML="출력할 내용";</li>
+  </ol>
+
+  <div id="box01">박스요소에 자바스크립트 내용 출력하기</div>
+
+  <script>
+    document.write('<footer><address>copyright&copy;2022 OOO allrights reserved.</address></footer>')
+
+    document.getElementById('box01').innerHTML='<h3>아이디 box01에 제목요소 삽입하기</h3>';
+  </script>
+</body>
+</html>

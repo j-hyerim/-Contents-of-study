@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01.javacript data type</title>
+    <script>
+        //기본형 (원시형)데이터
+        let s = '10'; //문자
+        let n = 10 //숫자
+        let b = true; //불
+        let n01 //undefined
+        let n02 = null; //null
+
+        //출력
+        document.write(s + '<br>');
+        document.write('위 변수에 저장된 값은 ' + typeof(s) + '입니다.<br>');
+        document.write(n + '<br>');
+        document.write('위 변수에 저장된 값은 ' + typeof(n) + '입니다.<br>');
+        document.write(b + '<br>');
+        document.write('위 변수에 저장된 값은 ' + typeof(b) + '입니다.<br>');
+        document.write(n01 + '<br>');
+        document.write('위 변수에 저장된 값은 ' + typeof(n01) + '입니다.<br>');
+        document.write(n02 + '<br>');
+        document.write('위 변수에 저장된 값은 ' + typeof(n02) + '입니다.<br>');
+        document.write('<hr>')
+
+        //참조형 배열
+        let array = [10,20,30,40,50];
+
+        //배열 출력하기
+        document.write(array + '<br>'); //전체출력
+        document.write(array[0] + '<br>'); //0번째
+
+        let array01 = ['일','월','화','수','목','금','토'];
+        document.write('오늘의 요일은 \'' + array01[3] +'요일\'입니다.' + "<br>")
+
+        let info=['홍길동','23','종로구 구기동 그린컴퓨터아트학원','02-7222-1333'];
+
+        // 예전 방식
+        document.write('나의 이름은 '+info[0]+'이고 나이는 '+ info[2]+'이며 '+info[3]+' 수강생입니다.')
+        
+        // es6 문법방식
+        document.write(`나의 이름은 ${info[0]}이고 나이는 ${info[2]}이며 ${info[3]} 수강생입니다.`)
+
+        //함수형데이터
+        function sam(){
+            alert('함수형 데이터입니다. 호출하기 전까진 출력이 안됩니다.')
+        }
+
+        //함수 호출
+        // sam();
+
+        //사용자 객체
+        let person={
+            'age':'20',
+            'job':'student',
+            'height':'175'
+        }
+        //사용자 객체 출력
+        document.write('<br>'+person.age+'<br>');
+        document.write(person.job+'<br>');
+        document.write(person.height+'<br>');
+
+        //마켓컬리에서 인기상품 내용을 객체로 만들어 출력하기
+        //상품명(굵게 fontsize=30px), 가격(굵게 color=rad), 할인가(파랑), 상세설명(#333,14px)
+
+        let commdity1={
+            'name':'상큼유자 꼬들무 장아찌',
+            'price':'3980',
+            'sale':'3582',
+            'ad':'마싯음'
+        }
+        document.write('<br>');
+        document.write('<p class="p01">'+commdity1.name+'</p>');
+        document.write('<p class="p02">'+commdity1.price+'</p>');
+        document.write('<p class="p03">'+commdity1.sale+'</p>');
+        document.write('<p class="p04">'+commdity1.ad+'</p>');
+    </script>
+    <style>
+        .p01{
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .p02{
+            font-weight: bold;
+            color: red;
+        }
+        .p03{
+            color: blue;
+        }
+        .p04{
+            color: #333;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h2>01_javascript_data type</h2>
+    <p>javacript에서 사용하는 데이터 유형에 대해 알아보기</p>
+    <p>변수 안에 들어간 데이터의 유형을 알아보기 위해서는 typeof 연산자를 활용하면 된다.</p>
+    <ul>
+        <li>문자데이터형(string)</li>
+        <li>숫자데이터형(number)</li>
+        <li>불린형(boolean) - true, falsw</li>
+        <li>찾을 수 없는 데이터형(undefined)</li>
+        <li>값이 없는 데이터(null)</li>
+        <li>배열형 데이터(array)</li>
+        <li>함수형 데이터(function)</li>
+        <li>객체(object) - document, window, alert, confirm...</li>
+    </ul>
+</body>
+</html>

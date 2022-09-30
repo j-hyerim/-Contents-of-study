@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04_javascript_operater(연산자)</title>
+  <script>
+    //1. 산술연산자
+    let a = 10;
+    let b = 5; 
+
+    let res = a + b; // a와 b를 더하여 res에 저장한다.
+    res = a - b; // a와 b를 빼서 res에 저장한다.
+
+    //출력하기
+    document.write(res+'<br>');
+
+    res = a%2; //a에 2를 나누어서 나머지값을 구한다.
+    document.write(res);
+
+    let num = prompt('숫자를 입력하세요 예)10');
+    if(num%2==0){
+      document.write('<p class="blue">입력하신 숫자는 짝수입니다.</p>');
+    }else{
+      document.write('<p class="red">입력하신 숫자는 홀수입니다.</p>');
+    }
+    //2. 비교연산자
+    res = a > b;
+
+    //출력하기
+		document.write('<br>10이 5보다 크기때문에 true => '+res);
+
+    res = a == b;
+    document.write('<br>10이 5와 같지 않기 때문에 false => '+res);
+
+    //3. 대입연산자   a=b, a+=b, a-=b  
+    res = a = b;
+    document.write('<br>b의 값이 a에 대입, res에 대입이 되어서 5가 나옴 => '+ res);
+
+    //4. 증감연산자 : ++(1씩 변수값에 더한다.), --(1씩 변수값에 뺀다)
+    res = ++a;
+    document.write('<br>'+ res); //6
+
+    //증감연산자는 변수앞에 사용하면 먼저 계산하고 출력, 변수뒤에 작성하면 출력하고 계산을 한다.
+    //    변수a 앞에 ++연산자 사용 : 먼저 변수값에 1을 더하고 출력
+		//    변수a 뒤에 ++연산자 사용 : 변수값을 출력하고 1을 더하라
+
+    //5. 논리연산자 - &&(and), ||(or), !(not)
+    alert((1>2)&&(1<2)); //1조건과 2조건 모두 만족하지 않기 때문에 false값이 출력됨.
+		alert((1>2)||(1<2)); //1조건과 2조건 둘중에 하나만 만족하기 때문에 true값이 출력됨.
+		
+		document.write('<hr>');
+
+    //6. 문자열 결합연산자
+    let c, d;
+		c = 'UI/UX디자인';  //문자데이터
+		d = 2021;     //숫자데이터
+
+    document.write(c + d);  
+		//숫자+문자, 문자+문자를 결합하고자 할 때 사용하는 연산자임.
+    document.write('<hr>');
+
+    //7. 삼항조건 연산자   조건식?실행문1:실행문2;
+		//예) 1>2?맞습니다.:틀립니다;
+
+    //사용자가 입력한 숫자가 60점이상이면 '합격' 그렇지 않으면 '불합격'으로 출력하기
+		let num1 = prompt('점수를 입력하세요 예) 60');		
+		num1 >= 60?document.write("<strong>합격</strong>"):document.write("<em>불합격</em>");
+    
+  </script>
+</head>
+<body>
+  <h2>04_javascript_operater(연산자)</h2>
+  <p>자바스크립트 연산자는 사용자가 조건식을 만들어서 원하는 결과를 출력하고자 할 때 사용하는 기호이다.</p>
+  <ul>
+		<li>산술연산자 : +, - , *, /, %(나머지)</li>
+		<li>문자열 결합연산자 : +</li>
+		<li>비교연산자 : >, <, ==, ===</li>
+		<li>대입연산자 : =, += -=</li>
+		<li>증감연산자 : ++ , --</li>
+		<li>논리연산자</li>
+		<li>삼항조건연산자</li>
+		<li>타입연산자 - typeof(데이터 타입을 구분)</li>
+	</ul>
+</body>
+</html>
