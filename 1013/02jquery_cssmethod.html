@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02jquery_cssmethod</title>
+    <script src="./jquery/jquery-3.6.1.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            $('*').css({            //전체 선택자
+                'margin':'0px',
+                'padding':'0px'
+            })
+            $('#p01').css('color','#f00'); //id 선택자
+            $('.title01').css('background','#ff0'); //클래스 선택자
+            $('h3').css('color','#00f'); //태그 선택자
+
+            //자손 후손
+            $('ul>li').css('font-family','바탕체'); //자손선택자
+            $('body ul').css('border','2px solid #ff0'); //후손선택자
+
+            //구조선택자 - n번째 해당하는 요소를 찾아서 서식 적용하기
+            $('ul > li:first-child').css('font-weight','bold');
+
+            //동위선택자 (*,~)
+            $('h2 + p').css('padding','10px').css('border','2px solid #00f');
+
+            //그룹선택자(,)
+            $('h2,h3').css('font-style','italic');
+
+            //탐색선택자
+            $('ul >li:odd').css('background','#00ff00'); //홀수번째 (0부터 시작이기에 웹에선 짝수로 보임)
+            $('ul >li:even').css('background','#b9a037'); //짝수번째
+
+            //속성선택자
+            $('input[type=text]').css('background','#00ff00');
+            $('label[for=t1]').css('color','#f00');
+            $('input[type=submit]').css({
+                'background':'#000',
+                'color':'#fff',
+                'border':'none'
+            })
+
+        });
+    </script>
+</head>
+<body>
+    <h2 class="title01">02jquery_cssmethod</h2>
+    <p id="p01">jquery에서는 css에서 사용하던 선택자를 활용하여 서식을 적용할 수 있는데, jquery 는 css보다 좀더 세밀하게 선택할 수 있고, 그 개수도 많다.</p>
+    <p>http://oscarotero.com/jquery/ - API 참고사이트의 왼쪽 'SELECTORES' 에서 확인 가능하다.</p>
+
+    <h3>jquery selector을 사용하여 서식 변경하기</h3>
+    <ul>
+        <li>콜드브루</li>
+        <li>브루드 커피</li>
+        <li>에스프레소</li>
+    </ul>
+    <label for="t1">Message : </label>
+    <input type="text" id="t1">
+    <input type="submit">
+</body>
+</html>
