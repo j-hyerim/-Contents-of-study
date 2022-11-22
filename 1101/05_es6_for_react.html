@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05_es6_for_react</title>
+  <style>
+    pre{
+      padding: 20px;
+      width: 600px;
+      color: #fff;
+      background: #333;
+    }
+  </style>
+</head>
+<body>
+  <h2>05_es6_for_react(비구조화 할당)</h2>
+  <p>-비구조화 할당이란 배열이나 객체의 속성 혹은 값을 해체하여 그 값을 변수에 각각 담아 사용하는 자바스크립트 표현식입니다.</p>
+  <h3>1. 기존 배열 값을 해체(이전 방법)</h3>
+  <pre>
+    var yoil = {'일','월','화','수','목','금','토'};]
+    document.write(yoil);
+    document.write(yoil[0]);
+  </pre>
+  <h3>2. 비구조화 할당 방식으로 배열 선언과 호출하기</h3>
+  <pre>
+    //const [변수명1,변수명2,변수명3,변수명4,변수명5] = [값1,값2,값3,값4,값5];
+    const [cat, dog, animal] = ['고양이','강아지','팬더'];
+    console.log(cat);
+    console.log(dog);
+    console.log(animal);
+  </pre>
+  <h3>3. 비구조화 할당 방식의 배열 데이터 분리하기</h3>
+  <pre>
+    const animalList = ['고양이','강아지','팬더'];
+    const [cat2,...restAni2] = animalList2; //배열데이터 앞 요소 1개와 나머지 요소를 분리
+    
+    console.log(cat2);
+    console.log(restAni2);
+  </pre>
+
+  <h3>4.비구조 할당방식의 기본값 지정</h3>
+  <p>배열 선언시 변수에 기본값을 지정하여 사용할 수 있다.</p>
+  <pre>
+    const [cat1,dog1,bear,bird='참새']=['고양이','강아지','곰'];
+   console.log(cat1);
+   console.log(dog1);
+   console.log(bear);
+   console.log(bird);
+  </pre>
+
+  <script>
+    //     const [cat, dog, animal] = ['고양이','강아지','팬더'];
+    // console.log(cat);
+    // console.log(dog);
+    // console.log(animal);
+
+    const animalList2 = ['고양이','강아지','팬더'];
+    const [cat1,dog2,...restAni2] = animalList2; //배열데이터 앞 요소 1개와 나머지 요소를 분리
+    
+    console.log(cat1);
+
+    console.log(dog2);
+    console.log(restAni2);
+  </script>
+</body>
+</html>

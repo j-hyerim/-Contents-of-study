@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>react를 위한 자바스크립트 es6문법</title>
+</head>
+<body>
+  <h2>react를 위한 자바스크립트 es6문법</h2>
+  <p>리액트를 공부하기 위한 필수 자바스크립트 es6(2015)표준에 대해 학습한다.</p>
+  <p>ECMAScript는 표준, 규격을 의미합니다. ECMAScript 2015를 ES6라고 부릅니다.</
+  <ol>
+    <li>변수선언 키워드 var => let, const</li>
+    <li>화살표 함수(function)</li>
+    <li>객체 리터럴(``)</li>
+    <li>class문법</li>
+    <li>비구조화 할당</li>
+    <li>import & export</li>
+    <li>array메서드 추가</li>
+  </ol>
+
+  <h3>1. 변수 선언시 키워드 사용 - var, let, const</h3>
+  <script>
+    var a = 10;
+    var a = 20;
+    console.log(a);
+
+    var b = 10; //전역변수
+
+    var c;
+    function test(){
+      c = 30; //지역변수
+    }
+    if(b ==10){
+      var d=30; //전역변수
+    }
+    test();
+    console.log(c);
+    console.log(d);
+
+ //지역변수와 전역변수의 차이점 명확하게 이해하기 - 함수내에서 선언하면 코드블록에서만 변수가 사용됨. 전역에서 호출하면 에러남.
+
+    let e = 40;
+    //let e = 50;
+    console.log(e); //두번 선언되었기 때문에 에러
+
+    e = 50;
+    console.log(e);
+
+    //const - 변하지 않는 고정된 값을 저장할때
+    const f = 60;
+    console.log(f);
+    //f = 70;
+    console.log(f);
+
+    //const는 값이 변경되면 오류가 난다.
+    //단, 객체{} 또는 배열로 선언하면 객체의 속성과 배열의 요소값을 변경할 수 있다.
+
+  //1. 객체를 생성하여 사용
+  const g = {
+    test01 : 10,
+    test02:'hello'
+  }     
+  console.log(g.test01);//첫번째 값출력
+  console.log(g.test02);//두번째 값출력
+
+  g.test02='안녕하세요'; //두번째 값변경하여 출력
+  console.log(g.test02);
+
+  //2. 배열선언하여 사용
+  const i = ['(일)','(월)','(화)','(수)','(목)','(금)','(토)'];
+
+  //출력 - 오늘의 요일은 월요일입니다.
+  let today = new Date();
+  let day = today.getDay(); 
+
+  console.log(`오늘의 요일은 ${i[day]}입니다.}`)
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실습예제</title>
+  <style>
+    #box01{
+      width:500px;height:150px;
+      border:3px solid #000;
+      background:#ccc;
+    }
+    .act{
+      background:#ff0 !important;
+      border:1px solid #f00 !important;
+    }
+    .banner{
+      margin: 0px auto;
+      position: relative;
+      overflow: hidden;
+    }
+    .banner *{margin:0px;padding:0px;}
+    ul, ol, li{list-style:none;}
+    .banner{
+      width:250px;
+      height:180px;
+      border:3px solid #000;
+    }
+    .banner .slide, .banner .c_btn{
+      display:flex;
+    }
+    .banner .slide{
+      width:1000px;
+      position:relative;
+    }
+    .banner .c_btn{justify-content:center;}
+    .banner .c_btn > li{
+      width:10px;height:10px;
+      background:#ccc;
+      border-radius:50%;
+      margin:6px 3px 0px 3px; 
+      transition:0.3s;
+    }
+    .act01{
+      width:40px !important;
+      border-radius:10px 10px 10px 10px !important;
+      background:#000 !important;
+    }
+    .fas{
+      position: absolute;
+      bottom: 5px;}
+      .fa-play{
+        right:20px;
+      }
+      .fa-pause{
+        right: 5px;
+      }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      let n =$(this).index();
+      
+      //이미지 크기를 자동으로 구하여 변수에 담기
+      let s_img = $('.banner .slide img').width();
+      console.log(s_img); //250
+
+      //이미지 슬라이드 
+      $('.banner .c_btn li').first().addClass('act01');
+
+      $('.banner .c_btn li').click(function(){
+        n = $(this).index();
+
+
+        //목록에 적용된 서식을 모두 제거하고
+        $('.banner .c_btn li').removeClass('act01');
+        $(this).addClass('act01'); //현재 목록에만 서식을 적용한다.
+      });     
+
+      function auto(n){
+        console.log(n);
+        $('.banner .slide').stop().animate({'left':-(s_img*n)},500);
+      }
+
+      function moveLeft(){
+       if(n==2){
+        n=0;
+       }else{
+        n++;
+       }
+       auto(n);
+      }
+      let Timer = setInterval(moveLeft, 2000);
+
+      // 플레이, 스탑버튼 기능 구현하기
+      $('.banner i.fa-play').click(function(){
+        clearInterval(Timer);
+        Timer = setInterval(moveLeft, 3000);
+      });
+
+      $('.banner i.fa-pause').click(function(){
+        clearInterval(Timer);
+      });
+
+    });
+  </script>
+</head>
+<body>
+  <h2>
+    01 제이쿼리 ㅣ애니메이트 실습예제 02 컨트롤 버튼을 활용한 이미지 슬라이드
+  </h2>
+  <article class="banner">
+    <ul class="slide">
+      <li><a href="#" title=""><img src="./img/emp-policy-slide2.png" alt=""></a></li>
+      <li><a href="#" title=""><img src="./img/emp-policy-slide3.png" alt=""></a></li>
+      <li><a href="#" title=""><img src="./img/emp-policy-slide4.png" alt=""></a></li>
+      <li><a href="#" title=""><img src="./img/emp-policy-slide5.png" alt=""></a></li>
+    </ul>
+    <ul class="c_btn">
+      <li>&nbsp;</li>
+      <li>&nbsp;</li>
+      <li>&nbsp;</li>
+      <li>&nbsp;</li>
+    </ul>
+    <i class="fas fa-play"></i>
+    <i class="fas fa-pause"></i>
+  </article>
+
+</body>
+</html>

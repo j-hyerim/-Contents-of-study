@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06_es6_import,export</title>
+  <style>
+    pre{
+      padding: 20px;
+      width: 600px;
+      color: #fff;
+      background: #333;
+    }
+  </style>
+  <script src="./script/js.js"></script>
+  <script src="./script/js02.js"></script>
+</head>
+<body>
+  <h2>06_es6_import,export</h2>
+  <p>import(가져오기, 수입, 불러오기), export(수출, 내보내기)</p>
+  <p>기본적으로 자바스크립트의 유효범위는 전역으로 시작됩니다.</p>
+  <pre>
+    var a =10;
+    function test(){
+      return a;
+    }
+    test();
+  </pre>
+  <script>
+    document.write(test());
+  </script>
+  <p>모듈화란 다른 파일의 자바스크립트 기능을 특정 파일에서 사용하는 것을 말합니다.</p>
+  <p>그 이유는 다른 파일에서 변수나 함수나 객체명이 같을 수 있습니다.</p>
+  <p>그래서 에러 혹은 값이 변경되는 큰 문제가 발생됩니다.</p>
+  <p>자바스크립트는 준비구문을 한번 쓰지만 제이쿼리 같은 경우는 준비구문을 여러번 작성해서 각각의 라이브러리가 갖고 잇는 변수가 겹치지 못하게 미리 막습니다.</p>
+  <p>자바스크립트 같은 경우는 네임 스페이스 모듈화 패던이나 프레임 워크를 이용해서 막았엇으나, ES6 부터는 언어 자체에서 모듈화를 지원합니다.</p>
+
+
+  <h2>2. import & export 문법</h2>
+  <pre>
+    //export는 다른 파일에서 가져다 쓸 수 있도록 내보내는 키워드 , 즉 모듈을 내보낼 대 사용한다.
+    var num =10;
+    export [num];
+    export car str='안녕하세요';
+    //미리 선언된 변수나 함수를 export할 수 있고, 이름을 지정해서 내보낼 수 도 있는데 이러한 방식을 Named exprt 라고한다.
+
+    //Default export
+    //Default export는 모듈당 딱 하나의 영역에서만 선언이 가능하다.
+    let a=10;
+    let b=20;
+    export default a;
+    export {b};
+
+    //2. import 문법
+    import {불러올 변수 또는 함수명} from '파일 경로';
+    //import는 export 된 변수나 함수를 현재 문서로 불러오는 키워드입니다.
+
+    //여러 멤버 불러오기
+    import[변수명1,변수명2] from '파일경로';
+  </pre>
+</body>
+</html>

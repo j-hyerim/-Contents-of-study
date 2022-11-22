@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    pre{
+      padding: 20px;
+      width: 600px;
+      color: #fff;
+      background: #333;
+    }
+  </style>
+</head>
+<body>
+  <h2>03 리엑트를 위한 자바스크립트 es6 문법_ 향상된 객체 리터럴</h2>
+  <p>- 향상된 객체 리터럴이란 기존 자바스크립트에서 사용되던 객체 정의 방식을 개선한 문법입니다.</p>
+  <p>- 자주 사용하던 문법을 한층 더 간결하게 작성할 수 있도록 도와줍니다.</p>
+
+  <h3>1. 기존 객체 정의 방식</h3>
+  <pre>
+    var 객체명 = {
+      속성 : 값 // a:a =>a
+      메서드: function(){
+        //메서드 명령
+      }
+    }
+  </pre>
+
+  <h3>2. 축약된 문법</h3>
+  <pre>
+    car test ={
+      // javascript : javascript
+      javascript
+    }
+    console.log(test);
+  </pre>
+  <p>위 소스코드는 현재 에러가 나지만 React에서 사용 가능하다.</p>
+  <p>* 변수 명과 속성 명이 같으면 값을 작성하지 않아도 된다.</p>
+  <pre>
+    var a= 'tt',b = 42, c={};
+    var test={
+      a, //a=a여야지만 속성명과 변수명이 같기에 작성하지 않는다.
+      b,
+      c,
+    };
+    console.log(test.a); //tt
+    console.log(test.b); //42
+    console.log(test.c); //{}
+  </pre>
+  <p>변수명이 속성값으로 전달되서 잘 호출되는 것을 확인한다.</p>
+  <p>기존에는 변수명과 key명이 같더라도 반드시 다시 값을 할당해야만 가능하였다.</p>
+  <p>향상된 문법에서는 변수에만 값을 대입하더라도 잘 출력된다.</p>
+
+  <h3>3. 메소드 작성 시 function 생략 가능하다.</h3>
+  <pre>
+    var test = {
+      javascript(){
+        consloe.log('javascript;);
+      }
+    }
+    test.javascript();
+  </pre>
+  <script>
+    var a= 'tt',b = 42, c={};
+    var test={
+      a, //a=a여야지만 속성명과 변수명이 같기에 작성하지 않는다.
+      b,
+      c,
+    };
+    console.log(test.a); //tt
+    console.log(test.b); //42
+    console.log(test.c); //{}
+
+    var test = {
+      javascript(){
+        consloe.log('javascript');
+      }
+    }
+    test.javascript();
+  </script>
+</body>
+</html>

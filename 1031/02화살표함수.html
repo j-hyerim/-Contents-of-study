@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_화살표 함수(arrow function)</title>
+</head>
+<body>
+  <h2>02_화살표 함수(arrow function)</h2>
+  <pre>
+    1. 기존함수 
+    function 함수명(){
+      실행할 내용;
+    }
+    함수명();
+
+    2. 변수선언식
+    let 함수명 = function(){
+      실행할 내용;
+    }
+    함수명();
+
+    3. 화살표 함수
+    let 함수명 = () => {  //function 대신에  '=>' 기호를 사용한다.
+      실행할 내용;
+    }
+  </pre>
+
+  <script>
+
+    hello=() => alert('hello javascript'); //함수작성
+    // hello=() => {alert('hello javascript');}  //중괄호 넣어야 하는데 표현식이 하나이기 때문에 생략가능
+    //hello(); //함수실행
+
+    //표현식이 여러개일경우    :  함수명 = () => {표현식1;표현식2;}
+    hello1=()=>{
+      var a = 10;
+      var b = 10;
+
+      console.log(a+b);
+    }
+    hello1();
+
+    //{}없이 쓰기
+    // hello2 =()=> 
+    //   var c = 10;
+    //   var d=20;
+    //   console.log(c+d);
+
+    //hello2(); //오류가 남
+
+    //매개변수가 한개일 경우
+    square = c => {
+      return c * c; //5*5=25
+    }
+    console.log(square(5));
+
+    //매개변수가 여러개인 경우
+    square1 = (d, e) => {
+      return d*e; //10*5=50
+    }
+    console.log(square1(10,5));
+
+    //화살표 함수와 this
+    let f = this;
+    console.log(f);
+
+    //함수안에서의 this
+    function myFunction(){
+      return this;
+    }
+
+  console.log(myFunction());
+
+  //메소드 내부에서 작성한 this키워드
+  let person = {
+    firstName:'홍',
+    lastName:'길동',
+    id:5566,
+    fullName:function(){
+      return this.firstName + "" + this.lastName;
+    }
+  }
+  console.log(person.fullName());
+
+  //함수 안에서 매개변수의 기본값 처리
+  //함수의 매개변수를 호출하지 않아도 기본값으로 처리되도록 설정하는 문법이 추가됨.
+  
+  //function 함수명(매개변수명=기본값,매개변수명=기본값,...){  }
+  function test01(x,y=10){
+    return x+y;
+  }
+  console.log(test(5)); //x 매개변수에 5값이 대입이 된다.  15결과가 나옴.
+  console.log(test(30,15);)//x, y둘다 값이 대입이 된다. 45결과가 나옴.
+
+
+
+  </script>
+  <p>this : 전역에서 this키워드를 작성하면 브라우저 전역을 의미하는 [window]객체입니다. </p>
+  <p>함수안에서 this키워드는 마찬가지로 [window]객체를 말한다.</p>
+  <p>객체안에서 사용한 this는 메서드를 소유한 객체를 의미한다.(person)</p>
+
+</body>
+</html>
