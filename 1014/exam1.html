@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습예제 - 쿠팡 화면 상단 배너/ 숨기기</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="./css/reset.css" type="text/css">
+    <style>
+        .box{
+            width: 1263px;
+            margin: 0px auto;
+            position: relative;
+        }
+        .icon{
+            position: absolute;
+            display: block;
+            cursor: pointer;
+            right: 0px;
+            top: 40px;
+        }
+        body{
+        }
+        .popup{
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            /* z-index: 1000; */
+            background: rgba(51, 51, 51, 0.438);
+        }
+        .popup_inner{
+            position: relative;
+            width: 560px;
+            height: 730px;
+            /* background-color: aliceblue; */
+            margin: 0px auto;
+            top: 100px;
+        }
+        .popup input{
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+        }
+        .popup_img{
+            position: fixed;
+            margin: 0px auto;
+            top: 100px;
+            /* left:35%; */
+        }
+        </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.icon').click(function(){
+                $(this).next().slideUp();
+                $(this).hide();
+            })
+            $('input[type=button]').click(function(){
+                $('.popup').hide();
+            })
+           
+
+        });
+    </script>
+</head>
+<body>
+    <div class="box">
+        <span class="icon material-symbols-outlined">close</span>
+        <div>
+            <img src="./img/coupang_02.jpg" alt="">
+        </div>
+        <img src="./img/coupang_03.jpg" alt="">
+        <img src="./img/coupang_04.jpg" alt="">
+        <img src="./img/coupang_05.jpg" alt="">
+
+        
+    </div>
+    <div class="popup">
+        <div class="popup_inner">
+            <input type="button" value="닫기">
+            <img src="./img/popup.jpg" alt="" class="popup_img">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+fieldset{
+    width: 300px;
+    height:180px;
+}
+fieldset legend{
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+fieldset label{
+    display: none;
+}
+fieldset input{
+    display: block;
+    margin: 0px auto;
+    width: 250px;
+    height: 30px;
+}
+fieldset input[type=button]{
+    width: 258px;
+    margin-top: 20px;
+    background: rgb(130, 201, 25);
+    border: 1px solid green;
+    color: #fff;
+    height: 35px;
+}

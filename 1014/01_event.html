@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_jquery_event</title>
+    <link rel="stylesheet" href="./css/css.css" type="text/css">
+    <style>
+        .box{
+            border: 1px solid #000;
+            text-align: center;
+            margin-bottom: 5px;
+            line-height: 40px;
+            width: 300px;
+            cursor: pointer;
+        }
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.box1').click(function(){
+                $(this).css('background','yellow');
+            })
+            $('.box2').dblclick(function(){
+                $(this).css('background','green');
+            })
+            $('.box3').mouseenter(function(){
+                $(this).css('background','blue');
+            })
+            $('.box4').mouseleave(function(){
+                $(this).css('background','indigo');
+            })
+            $('.box5').hover(function(){
+                $(this).css('background','red');
+            },function(){
+                $(this).css('background','orange');
+            })
+            $('.box6').toggle(function(){
+                $(this).next().css('background','red');
+            },function(){
+                $(this).next().css('background','orange');
+            },function(){
+                $(this).next().css('background','yellow');
+            },function(){
+                $(this).next().css('background','greed');
+            },function(){
+                $(this).next().css('background','blue');
+            })
+
+            //focusIn,Out
+            $('#id_txt, #pw_txt').focusIn(function(){
+                $(this).css({
+                    'border':'1px solid #f00'
+                });
+            });
+            $('#id_txt, #pw_txt').focusOut(function(){
+                $(this).css('border','1px solid #ccc')
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>01_jquery_event</h2>
+    <input type="button" value="자바스크립트 이벤트(click)" id="btn">
+    <p>javascript 언어로 버튼을 클릭하면 '클릭이벤트 입니다.' 라는 메세지를 띄우기</p>
+    <p><pre>
+        1)
+        onclick="alert('click event');"</pre></p>
+    <p><pre>
+        2)
+        onclick="but()"
+
+        function but() {
+            alert('클릭이벤트입니다.');
+        }
+    </pre></p>
+    <p><pre>
+        3)
+        id="btn"
+
+        let btn = document.getElementById('btn');
+        btn.addEventListener('click',function(){
+            alert('click event');
+        });
+    </pre></p>
+
+    <p>웹 문서에서 버튼을 클릭하거나 마우스를 움직이는 모든 행위를 '이벤트'라고 한다. 그리고 이벤트 발생 시 함수의 실행문이 수행되도록 이벤트를 지정하는 것을 '이벤트 핸들러' 라고 한다.</p>
+
+    <h3>이벤트의 종류</h3>
+    <ul>
+        <li>마우스 이벤트</li>
+        <li>키보드 이벤트</li>
+        <li>포커스 이벤트</li>
+        <li>폼양식 이벤트</li>
+        <li>윈도우 이벤트 - 화면 스크롤(scroll)</li>
+    </ul>
+
+    <h3>이벤트 작성방법</h3>
+    <ol>
+        <li>단독 이벤트 - $('이벤트 대상').이벤트 메서드(function(){실행문;});</li>
+        <li>$('이벤트 대상').on('이벤트 종류1,이벤트종류2...',function(){실행문;});</li>
+    </ol>
+
+    <h3>마우스 이벤트와 양식 이벤트 사용하기</h3>
+    <ol>
+        <li>click - 마우스로 대상을 클릭하엿을 때 이벤트 내용이 실행</li>
+        <li>dblclick - 마우스로 대상을 더블클릭 하였을 때 이벤트 내용이 실행</li>
+        <li>mouseenter - 마우스로 대상을 오버하였을 때 이벤트 내용이 실행(=mouseover)</li>
+        <li>mouseleave -  마우스로 대상을 오버하였다가 떠났을 때 이벤트 내용이 실행(= mouseout)</li>
+        <li>hover - 마우스로 대상을 오버하였을 때, 뺏을 때 둘다 각각의 이벤트 내용이 실행</li>
+        <li>focus - 마우스로 클릭하여 포커스가 발생하였을 때 이벤트 발생</li>
+        <li>blur - 폼 양식에서 포커스가 해제되었을 때 이벤트 발생</li>
+        <li>toggle - 대상 요소를 클릭할 때마다 지정된 함수를 호출하여 실행</li>
+        <li>each - 개별 처리</li>
+    </ol>
+
+    <div class="box box1">click event</div>
+    <div class="box box2">dblclick event</div>
+    <div class="box box3">mouseenter event</div>
+    <div class="box box4">mouseleave event</div>
+    <div class="box box5">hover event</div>
+    <div class="box box6">toggle event</div>
+    <p>위 toggle 박스를 클릭하면 현재 문단 태그 요소에 서식이 변경됩니다.<br>
+    toggle이벤트는 제이쿼리 1.8 버전 이하에서만 동작됩니다.</p>
+
+    <h3>폼양식에 사용되는 focusIn, focusOut 이벤트 적용하기</h3>
+    <fieldset>
+        <legend>login</legend>
+        <label for="id_txt">아이디</label>
+        <input type="text" id="id_txt" placeholder="ID">
+        <br>
+        <label for="pw_txt">비밀번호</label>
+        <input type="password" id="pw_txt">
+        <input type="button" value="로그인">
+    </fieldset>
+    <script>
+        function but() {
+            alert('클릭이벤트입니다.');
+        }
+        let btn = document.getElementById('btn');
+        btn.addEventListener('click',function(){
+            alert('click event');
+        });
+
+
+    </script>
+</body>
+</html>

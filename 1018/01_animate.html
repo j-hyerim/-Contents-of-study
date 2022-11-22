@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_animate</title>
+    <style>
+        #box01{
+            width:100px;height: 100px;
+            border-radius: 50%;
+            background-color: yellow;
+            position: relative;
+        }
+        #char{
+            position: relative;
+            width: 300px;
+        }
+        .bar{
+            background: violet;
+            width: 20px;
+            height: 50px;
+            position: relative;
+            left: 0px;
+            margin-bottom: 10px;
+        }
+        .box{
+            width: 500px;
+            height: 20px;
+            background-color: gray;
+            border-radius:10px;
+            position: absolute;
+            top: 0px;
+        }
+        .py_box,.M_box,.D_box,.H_box,.C_box,.J_box{
+            width: 10px;
+            height: 20px;
+            background-color: tomato;
+            border-radius:10px;
+            position: absolute;
+            top: 0px;
+        }
+        .wrap{
+            position: relative;
+            width: 560px;
+            top: 20px;
+            left: 10px;
+        }
+       .con{
+        display: flex;
+       }
+       p{
+        display: inline-block;
+        width: 60px;
+       }
+    </style>
+    <!-- jquery 라이브러리 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <!-- 제이쿼리 랩퍼 -->
+    <script>
+        $(document).ready(function(){//html 문서의 내용이 출력되면 제이쿼리 내용을 실행한다.
+            $('#p_btn').click(function(){
+                $('#box01').animate({'left':'500px'},500).animate({'top':'200px'},1000).animate({'left':'0px'},2000).animate({'top':'0px'},500);
+            })
+            $('#s_btn').click(function(){
+                $('#box01').stop();//animation을 종료한다.
+            })
+
+            //자바스크립트 연산자를 사용하여 기존값에 50px 더하고 빼기
+            let n=50;//초기값
+            $('#r_btn').click(function(){
+                $('#char').animate({'left':'-='+n},300);
+            })
+            $('#l_btn').click(function(){
+                $('#char').animate({'left':'+='+n},300);
+            })
+            $('#t_btn').click(function(){
+                $('#char').animate({'top':'+='+n},300);
+            })
+            $('#b_btn').click(function(){
+                $('#char').animate({'top':'-='+n},300);
+            })
+
+            //easing 값 주기
+            $('#btn01').click(function(){
+                $('.bar01').animate({'width':'500px'},500,'linear').animate({'width':'0px'},300);
+            })
+            $('#btn02').click(function(){
+                $('.bar02').animate({'width':'500px'},500,'easeOutQuint').animate({'width':'0px'},300);
+            })
+            $('#btn03').click(function(){
+                $('.bar03').animate({'width':'500px'},500,'easeOutElastic').animate({'width':'0px'},300);
+            })
+
+            $('.py_box').animate({'width':'475px'},500,'linear');
+            $('.M_box').animate({'width':'400px'},500,'linear');
+            $('.D_box').animate({'width':'350px'},500,'linear');
+            $('.H_box').animate({'width':'450px'},500,'linear');
+            $('.C_box').animate({'width':'400px'},500,'linear');
+            $('.J_box').animate({'width':'300px'},500,'linear');
+        });
+
+    </script> 
+</head>
+<body>
+    <h2>01_animate 기본과 응용</h2>
+    <p>[ 작성법 ] .naimate({'속성':'값'},시간, 가속도, 콜백함수);</p>
+    <h3>1. animate 메소드로 박스 움직이게 하기</h3>
+    <div id="box01"></div>
+    <input type="button" value="play" id="p_btn">
+    <input type="button" value="stop" id="s_btn">
+     <h3>2. javascript의 절대값을 사용하여 캐릭터 위치 조정하기</h3>
+     <img src="./images/KakaoTalk.gif" alt="캐릭터" id="char">
+     <input type="button" value="&#8678;" id="r_btn">
+     <input type="button" value="&#8680;" id="l_btn">
+     <input type="button" value="&#8681;" id="t_btn">
+     <input type="button" value="&#8679;" id="b_btn">
+
+     <h3>3. JQUERY UI라이브러리를 사용하여 속도감 주기</h3>
+    <img src="./images/easing.png" alt="">
+    <div class="bar01 bar"></div>
+    <div class="bar02 bar"></div>
+    <div class="bar03 bar"></div>
+    <input type="button" value="기본값(Linear)" id="btn01"> <input type="button" value="EaseOutQuint" id="btn02"> <input type="button" value="EaseOutElastic" id="btn03"> 
+
+    <h3>4. 실습예제</h3>
+    <h4>my skills</h4>
+    <div class="con">
+        <p>python</p>
+        <div class="wrap">
+            <div class="box"></div>
+            <div class="py_box"></div>
+        </div>
+        <p class="p">95%</p>
+    </div>
+    <div class="con">
+        <p>ML</p>
+        <div class="wrap">
+            <div class="box"></div>
+            <div class="M_box"></div>
+        </div>
+        <p class="p">80%</p>
+   </div>
+   <div class="con">
+        <p>DL</p>
+        <div class="wrap">
+            <div class="box"></div>
+            <div class="D_box"></div>
+        </div>
+        <p class="p">75%</p>    
+    </div>
+
+    <div class="con">
+    <p>HTML</p>
+    <div class="wrap">
+        <div class="box"></div>
+        <div class="H_box"></div>
+    </div>
+    <p class="p">90%</p>
+   </div>
+
+    <div class="con">
+        <p>CSS</p>
+        <div class="wrap">
+            <div class="box"></div>
+            <div class="C_box"></div>
+        </div>
+        <p class="p">80%</p>
+     </div>
+    <div class="con">
+        <p>JS</p>
+        <div class="wrap">
+            <div class="box"></div>
+            <div class="J_box"></div>
+        </div>
+        <p class="p">55%</p>
+    </div>
+</body>
+</html>
